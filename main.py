@@ -46,13 +46,15 @@ def check_balances():
 
 if __name__ == "__main__":
     send_telegram_message("🤖 Bot started and is monitoring balances.")
+    last_run_time = time.time()  # Track last time the 5-minute message was sent
     while True:
         check_balances()
-        
-               # Notify every 5 minutes
+
+        # Notify every 5 minutes
         if time.time() - last_run_time >= 300:  # 300 seconds = 5 minutes
             print("Bot is running...")
             last_run_time = time.time()  # Update last run time
-        
+
         time.sleep(30)
+
 
